@@ -38,9 +38,9 @@ def chessboard_images_detection(imgs_folder: str, cb_point_size: tuple, cb_point
     ret, mtx, dist, rvecs, tvecs = cv.calibrateCamera(objpoints, imgpoints,
                                                       (1080, 1920),
                                                       None, None)
-    result = {'cam_mtx': mtx, 'cam_dist': dist}
 
-    return result
+    np.savetxt(os.getcwd() + os.sep + "mtx.txt", mtx)
+    np.savetxt(os.getcwd() + os.sep + "dist.txt", dist)
 
 
 # if __name__ == "__main__":
